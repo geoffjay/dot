@@ -1,0 +1,9 @@
+name = "bash"
+description = "bash shell: rc with option sourcing"
+os = ["macos", "linux"]
+
+[defaults]
+hist-size = 10000
+
+[files]
+"bashrc.tmpl" = "~/.bashrc"

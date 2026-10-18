@@ -1,5 +1,5 @@
 # Concepts
 
-Concepts for the dot project.
+Concept docs for the dot project.
 
-* _(empty — add concepts docs here)_
+* [Commands and lifecycle](commands.md) - what each dot command does, exit codes, and how they compose into the manage/propose loop.

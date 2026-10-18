@@ -1,0 +1,14 @@
+# Managed by dot (module: ghostty, dot {{ dot_version }}).
+
+font-family = {{ settings.font }}
+theme = {{ settings.theme }}
+
+# Keybinds
+# Vertical split
+keybind = shift+enter=text:\x1b\r
+
+# Pane navigation (tmux prefix)
+keybind = cmd+left=text:\x02\x1b[D
+keybind = cmd+right=text:\x02\x1b[C
+keybind = cmd+up=text:\x02\x1b[A
+keybind = cmd+down=text:\x02\x1b[B

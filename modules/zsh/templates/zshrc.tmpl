@@ -1,0 +1,22 @@
+# Managed by dot (module: zsh, dot {{ dot_version }}).
+
+HISTFILE="$HOME/.histfile"
+HISTSIZE={{ settings["hist-size"] }}
+SAVEHIST={{ settings["hist-size"] }}
+bindkey -e
+
+# source config
+if [ -d "$HOME/.zshrc.d" ]; then
+  for file in "$HOME"/.zshrc.d/*; do
+    [ -f "$file" ] && source "$file"
+  done
+fi
+{% if settings.plugins %}
+# plugins listed in [modules.zsh] are loaded here by name
+{% for plugin in settings.plugins %}
+# plugin: {{ plugin }}
+{% endfor %}
+{% endif %}
+{% if settings.prompt == "starship" and has("starship") %}
+eval "$(starship init zsh)"
+{% endif %}

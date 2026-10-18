@@ -1,0 +1,6 @@
+name = "starship"
+description = "starship prompt configuration"
+os = ["macos", "linux"]
+
+[files]
+"starship.toml.tmpl" = "~/.config/starship.toml"

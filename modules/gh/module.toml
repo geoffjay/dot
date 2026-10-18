@@ -1,0 +1,11 @@
+name = "gh"
+description = "GitHub CLI configuration"
+os = ["macos", "linux"]
+
+sensitive = ["~/.config/gh/hosts.yml"]
+
+[defaults]
+git-protocol = "https"
+
+[files]
+"config.yml.tmpl" = "~/.config/gh/config.yml"

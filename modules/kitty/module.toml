@@ -1,0 +1,12 @@
+name = "kitty"
+description = "kitty terminal: fonts and keybinds"
+os = ["macos", "linux"]
+
+[defaults]
+font = "MapleMono Nerd Font Mono"
+font-size = "14.0"
+
+[files]
+"kitty.conf.tmpl" = "~/.config/kitty/kitty.conf"
+"kanagawa.conf.tmpl" = "~/.config/kitty/kanagawa.conf"
+"nord.conf.tmpl" = "~/.config/kitty/nord.conf"

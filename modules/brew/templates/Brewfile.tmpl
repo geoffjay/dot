@@ -1,0 +1,40 @@
+# Managed by dot (module: brew, dot {{ dot_version }}).
+# Install with: brew bundle --file=~/.config/brew/Brewfile
+
+# taps
+tap "homebrew/bundle"
+{% if host.os == "macos" %}
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+{% endif %}
+
+# shells and prompt
+brew "zsh"
+brew "starship"
+brew "bat"
+brew "eza"
+brew "fzf"
+brew "lsd"
+
+# development
+brew "git"
+brew "gh"
+brew "neovim"
+brew "tmux"
+brew "direnv"
+brew "jq"
+brew "ripgrep"
+
+# languages
+brew "go"
+brew "rustup-init"
+
+{% if host.os == "macos" %}
+# fonts
+cask "font-maple-mono-nf"
+cask "font-fira-code-nerd-font"
+
+# terminals
+cask "kitty"
+cask "ghostty"
+{% endif %}

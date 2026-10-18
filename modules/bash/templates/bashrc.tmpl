@@ -1,0 +1,30 @@
+# Managed by dot (module: bash, dot {{ dot_version }}).
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+shopt -s cdspell
+shopt -s checkwinsize
+shopt -s cmdhist
+shopt -s dotglob
+shopt -s expand_aliases
+shopt -s extglob
+shopt -s histappend
+shopt -s hostcomplete
+
+export HISTSIZE={{ settings["hist-size"] }}
+export HISTFILESIZE=${HISTSIZE}
+export HISTCONTROL=ignoreboth
+
+{% if has("bat") %}
+alias cat="bat --theme {{ user.theme | capitalize }}"
+{% endif %}
+
+if [[ -d "$HOME/.bash.d" ]]; then
+  for i in "$HOME"/.bash.d/*; do
+    case "${i}" in
+      *.md|*.gitignore|bashrc|*.git|.idea) continue ;;
+    esac
+    [[ -f "${i}" ]] && source "${i}"
+  done
+fi

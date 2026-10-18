@@ -1,0 +1,9 @@
+name = "brew"
+description = "Homebrew: package lists and shellenv"
+os = ["macos", "linux"]
+
+[defaults]
+enable-shellenv = true
+
+[files]
+"Brewfile.tmpl" = "~/.config/brew/Brewfile"

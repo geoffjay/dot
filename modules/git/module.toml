@@ -1,0 +1,10 @@
+name = "git"
+description = "git: global config with aliases and diff tooling"
+os = ["macos", "linux"]
+
+[defaults]
+default-branch = "main"
+diff-tool = "difftastic"
+
+[files]
+"gitconfig.tmpl" = "~/.gitconfig"

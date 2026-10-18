@@ -44,11 +44,12 @@ to touch the KB on every edit.
 
 ## Concepts
 
-* _(empty — add concept docs here)_
+* [Commands and lifecycle](concepts/commands.md) - what each dot command does, exit codes, and how they compose into the manage/propose loop.
 
 ## Decisions
 
-* _(empty — add decision docs here)_
+* [Embedded modules and manifest ownership](decisions/embedded-modules.md) - module content ships inside the binary; a manifest under the XDG state dir defines which files dot owns.
+* [minijinja for template rendering](decisions/minijinja.md) - engine choice, template context contract, and the `has()` PATH probe.
 
 ## Patterns
 

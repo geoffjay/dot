@@ -1,0 +1,10 @@
+name = "zsh"
+description = "zsh shell: rc, history, plugin bootstrap"
+os = ["macos", "linux"]
+
+[defaults]
+hist-size = 10000
+plugins = []
+
+[files]
+"zshrc.tmpl" = "~/.zshrc"

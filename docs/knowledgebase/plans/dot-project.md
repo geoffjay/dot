@@ -350,15 +350,21 @@ geoffjay/dot
 
 ## 11. Milestones
 
-| # | Milestone | Done when |
-|---|---|---|
-| M0 | Scaffold + CI | workspace builds, `cargo make lint/test` gates green, packaging + release workflows copied and adapted, `dot --version` runs in CI |
-| M1 | Core domain (dot-core) | config/facts/modules/render/plan/state unit-tested in isolation |
-| M2 | `init`, `write`, `diff` | CLI integration sequence init→write→diff passes |
-| M3 | `backup`, `restore` | round-trip test passes on temp HOME |
-| M4 | `update` | brew/AUR detection + `--check` against releases API (mocked in tests) |
-| M5 | `propose` | `--dry-run` payload correct; issue creation smoke-tested against `gh` |
-| M6 | Module migration + v0.1.0 | priority modules migrated from cfg (zsh, bash, git, tmux), then term (kitty/ghostty/alacritty), brew, starship, lsd, gh, htop; first real host provisioned via `dot write`; release published to tap + AUR |
+Status as of the initial implementation (2026-10-18): **M0–M5 complete**,
+M6 code complete (modules migrated and verified on a temp HOME); what
+remains of M6 is publishing the v0.1.0 release (needs `HOMEBREW_TAP_TOKEN`/
+`AUR_KEY` secrets and the AUR `dot-bin` availability check, see open
+questions) and provisioning a real host.
+
+| # | Milestone | Done when | Status |
+|---|---|---|---|
+| M0 | Scaffold + CI | workspace builds, `cargo make lint/test` gates green, packaging + release workflows copied and adapted, `dot --version` runs in CI | done |
+| M1 | Core domain (dot-core) | config/facts/modules/render/plan/state unit-tested in isolation | done |
+| M2 | `init`, `write`, `diff` | CLI integration sequence init→write→diff passes | done |
+| M3 | `backup`, `restore` | round-trip test passes on temp HOME | done |
+| M4 | `update` | brew/AUR detection + `--check` against releases API | done |
+| M5 | `propose` | `--dry-run` payload correct (redaction + sensitive exclusion verified) | done |
+| M6 | Module migration + v0.1.0 | modules migrated from cfg; release published to tap + AUR; first real host provisioned | code done; release pending |
 
 ## 12. Decisions (to be promoted to `decisions/` as implementation confirms)
 

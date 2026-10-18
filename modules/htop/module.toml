@@ -1,0 +1,10 @@
+name = "htop"
+description = "htop process viewer configuration"
+os = ["macos", "linux"]
+
+[defaults]
+tree-view = 1
+color-scheme = 0
+
+[files]
+"htoprc.tmpl" = "~/.config/htop/htoprc"

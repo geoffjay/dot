@@ -1,0 +1,8 @@
+name = "example"
+description = "Example module used by dot-core tests and docs"
+
+[defaults]
+greeting = "hello"
+
+[files]
+"demo.tmpl" = "~/.dot-example.txt"

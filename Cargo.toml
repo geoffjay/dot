@@ -1,0 +1,42 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/dot-core",
+    "crates/dot",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/geoffjay/dot"
+
+[workspace.dependencies]
+dot-core = { path = "crates/dot-core" }
+anyhow = "1"
+thiserror = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.9"
+clap = { version = "4", features = ["derive", "env"] }
+minijinja = "2"
+similar = "2"
+include_dir = "0.7"
+directories = "6"
+dialoguer = "0.11"
+os_info = "2"
+which = "7"
+sha2 = "0.10"
+hex = "0.4"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+walkdir = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[profile.release]
+lto = true
+strip = true

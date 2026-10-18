@@ -1,0 +1,22 @@
+# Rust
+/target/
+**/*.rs.bk
+
+# cargo
+Cargo.lock.orig
+
+# scratch
+/tmp/
+*.log
+
+# okf
+docs/knowledgebase/site
+docs/notes
+
+# environment
+.env
+
+# editors / OS
+.idea/
+.vscode/
+.DS_Store

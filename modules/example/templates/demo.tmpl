@@ -1,0 +1,8 @@
+# Managed by dot (module: {{ module }}, dot {{ dot_version }}).
+
+{{ settings.greeting }}, {{ user.name }}!
+
+host: {{ host.hostname }} ({{ host.os }}/{{ host.arch }})
+email: {{ user.email }}
+theme: {{ user.theme }}
+{% if has("git") %}git is installed{% endif %}

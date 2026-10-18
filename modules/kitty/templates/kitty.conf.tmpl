@@ -1,0 +1,70 @@
+# Managed by dot (module: kitty, dot {{ dot_version }}).
+
+font_family      {{ settings.font }} Medium
+bold_font        {{ settings.font }} Bold
+italic_font      {{ settings.font }} Mono Italic
+bold_italic_font {{ settings.font }} Bold Italic
+
+font_size {{ settings["font-size"] }}
+
+modify_font cell_height 110%
+
+#: Cursor
+
+cursor_shape block
+
+#: Scrollback
+
+scrollback_lines 2000
+
+#: Mouse
+
+mouse_hide_wait 3.0
+url_color #0087bd
+url_style curly
+detect_urls yes
+copy_on_select no
+
+#: Performance
+
+repaint_delay 10
+sync_to_monitor yes
+
+#: Bell
+
+enable_audio_bell no
+
+#: Window
+
+remember_window_size  no
+initial_window_width  640
+initial_window_height 400
+
+#: Layouts
+
+enabled_layouts *
+
+#: Keys
+
+map ctrl+shift+enter new_window_with_cwd
+map ctrl+shift+t new_tab_with_cwd
+map ctrl+shift+w close_window
+
+#: Scrollbind navigation
+
+map ctrl+shift+p>l next_layout
+map ctrl+shift+p>previous_tab
+map ctrl+shift+p>next_tab
+
+# macOS clipboard
+map cmd+c copy_to_clipboard
+map cmd+v paste_from_clipboard
+
+#: Misc
+
+allow_remote_control socket-only
+listen_on unix:@kitty
+
+#: Theme
+
+include current-theme.conf

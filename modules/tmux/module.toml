@@ -1,0 +1,10 @@
+name = "tmux"
+description = "tmux: vi keys, theme, tpm plugins"
+os = ["macos", "linux"]
+
+[defaults]
+history-limit = 10000
+status-position = "top"
+
+[files]
+"tmux.conf.tmpl" = "~/.tmux.conf"

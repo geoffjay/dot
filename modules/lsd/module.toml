@@ -1,0 +1,6 @@
+name = "lsd"
+description = "lsd (ls deluxe) configuration"
+os = ["macos", "linux"]
+
+[files]
+"config.yaml.tmpl" = "~/.config/lsd/config.yaml"

@@ -1,0 +1,33 @@
+# Managed by dot (module: starship, dot {{ dot_version }}).
+
+"$schema" = "https://starship.rs/config-schema.json"
+
+format = "$direnv$directory$character"
+
+right_format = "$rust$c$golang$ruby$nodejs$python$git_status$git_branch"
+
+command_timeout = 2000
+
+[character]
+success_symbol = "[λ](fg:#ECEFF4)"
+error_symbol = "[λ](fg:#BF616A)"
+
+[directory]
+style = "bold fg:#81A1C1"
+format = "[ $path ]($style)"
+truncate_to_repo = false
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+format = "(fg:#ECEFF4) [$symbol $branch ](bold fg:#B48EAD)[](bold fg:#A3BE8C)"
+
+[git_status]
+format = "[](bold fg:#A3BE8C) [($all_status$ahead_behind)]($style)[](bold fg:#A3BE8C)"
+style = "bold fg:#D08770"
+
+[direnv]
+symbol = ""
+format = "[ $symbol](fg:#A3BE8C)"
+disabled = false

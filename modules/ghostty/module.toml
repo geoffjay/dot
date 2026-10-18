@@ -1,0 +1,10 @@
+name = "ghostty"
+description = "ghostty terminal configuration"
+os = ["macos", "linux"]
+
+[defaults]
+font = "FiraCode Nerd Font Mono"
+theme = "kanagawabones"
+
+[files]
+"config.tmpl" = "~/.config/ghostty/config"

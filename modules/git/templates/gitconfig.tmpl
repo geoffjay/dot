@@ -1,0 +1,75 @@
+# Managed by dot (module: git, dot {{ dot_version }}).
+
+[user]
+	name = {{ user.name }}
+	email = {{ user.email }}
+
+[init]
+	defaultBranch = {{ settings["default-branch"] }}
+
+[alias]
+	aliases = !"git config --get-regexp alias | sed -e 's/\\([a-z\\-\\.]*\\)[[:space:]].*/\\1/' -e 's/alias\\.//'"
+	ci = commit -a
+	co = checkout
+	cop = checkout @{-1}
+	cl = clone
+	st = status
+	lo = log --oneline
+	lp = log --patch --follow
+	d = difftool
+	recent-branches = for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/
+	cf = !"f() { git diff --stat --color $1..$(git branch --show-current); }; f"
+	up = !"f() { git fetch --no-tags --all -p && git merge --ff-only || true; }; f"
+
+[core]
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+[color]
+	ui = auto
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	whitespace = red reverse
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[push]
+	default = simple
+
+[diff]
+	tool = {{ settings["diff-tool"] }}
+
+[difftool]
+	prompt = false
+
+[credential]
+	helper = cache
+{% if has("gh") %}
+
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/env gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/env gh auth git-credential
+{% endif %}
+{% if has("git-lfs") %}
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+{% endif %}
