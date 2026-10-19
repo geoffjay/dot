@@ -1,0 +1,11 @@
+# vim:ft=zsh:set ts=2 sw=2:
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH=/usr/local/bin:$PATH
+
+# if DEBUG is set, print out the path
+if [[ -n "$DEBUG" ]]; then
+  echo "--------- final ------------"
+  echo $PATH
+  echo -e "-----------------------------\n"
+fi

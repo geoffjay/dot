@@ -93,9 +93,13 @@ package managers) and a `has("tool")` helper — replacing the hand-coded
 in the binary at build time, so content and tool version never drift.
 
 Shipped modules: bash, brew, gh, ghostty, git, htop, kitty, lsd,
-starship, tmux, zsh. To override a template locally without waiting for
-a release, drop a file in `~/.config/dot/modules/<name>/templates/` —
-the overlay wins at render time and is the natural input to a `propose`.
+starship, tmux, zsh. The zsh module is ingested from a real host and
+covers the full shell setup: `.zshrc`, `.zprofile`, `.zshenv`,
+`.zshenv.d/`, `.zshrc.d/` fragments, `~/.zsh/util/` scripts and
+plugins — rendered byte-identically to the source host. To override a
+template locally without waiting for a release, drop a file in
+`~/.config/dot/modules/<name>/templates/` — the overlay wins at render
+time and is the natural input to a `propose`.
 
 `dot propose --module zsh` diffs on-disk managed files against what the
 current binary would render, redacts sensitive values, excludes files a

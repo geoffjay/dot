@@ -45,6 +45,7 @@ to touch the KB on every edit.
 ## Concepts
 
 * [Commands and lifecycle](concepts/commands.md) - what each dot command does, exit codes, and how they compose into the manage/propose loop.
+* [Ingesting host configuration into modules](concepts/ingestion.md) - copy-verbatim-then-verify method; `dot diff` must be empty on the source host.
 
 ## Decisions
 

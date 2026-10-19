@@ -1,0 +1,6 @@
+# vim:ft=zsh:set ts=2 sw=2:
+
+# configuration is managed through git with an alias to set the working directory
+export CFGDIR=$HOME/.cfg
+alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias cfg="config"

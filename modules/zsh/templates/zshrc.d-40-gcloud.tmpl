@@ -1,0 +1,7 @@
+# vim:ft=zsh:set ts=2 sw=2:
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '{{ settings["gcloud-root"] }}/path.zsh.inc' ]; then . '{{ settings["gcloud-root"] }}/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '{{ settings["gcloud-root"] }}/completion.zsh.inc' ]; then . '{{ settings["gcloud-root"] }}/completion.zsh.inc'; fi

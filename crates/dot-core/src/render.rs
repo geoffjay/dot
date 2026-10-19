@@ -54,6 +54,10 @@ pub fn render_module(
 
     let mut env = Environment::new();
     env.set_auto_escape_callback(|_| minijinja::AutoEscape::None);
+    // Templates are verbatim config files: preserve the final newline
+    // exactly (Jinja's default is to drop it, which would make every
+    // managed file differ from the source it was ingested from).
+    env.set_keep_trailing_newline(true);
 
     let mut context = serde_json::Map::new();
     context.insert(
@@ -241,5 +245,32 @@ mod tests {
         for f in &rendered {
             assert!(f.target.starts_with("/home/u"));
         }
+    }
+
+    #[test]
+    fn render_preserves_trailing_newline() {
+        // Regression: Jinja's default drops the final newline, which made
+        // every ingested verbatim file differ from its source at write
+        // time. The example module's demo.tmpl ends with a newline.
+        let module = Module::by_name("example").expect("example module embedded");
+        let config: Config = toml::from_str("").unwrap();
+        let rendered = render_module(
+            &module,
+            &config,
+            &facts(),
+            Path::new("/home/u"),
+            None,
+            &[],
+            "0.1.0",
+        )
+        .unwrap();
+        let demo = rendered
+            .iter()
+            .find(|f| f.template == "demo.tmpl")
+            .expect("demo.tmpl rendered");
+        assert!(
+            demo.content.ends_with('\n'),
+            "rendered content must keep the template's trailing newline"
+        );
     }
 }

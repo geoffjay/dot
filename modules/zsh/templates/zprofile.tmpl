@@ -1,0 +1,11 @@
+# {% if has("docker") %}The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:{{ settings["docker-bin"] }}"
+{% endif %}# End of Docker Desktop section.
+
+# Added by Toolbox App
+export PATH="$PATH:/usr/local/bin"
+{% if host.os == "macos" and has("brew") %}
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{% endif %}
+# Hermes Agent — ensure ~/.local/bin is on PATH
+export PATH="$HOME/.local/bin:$PATH"

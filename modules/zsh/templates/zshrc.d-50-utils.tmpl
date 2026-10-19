@@ -1,0 +1,15 @@
+# vim:ft=zsh:set ts=2 sw=2:
+
+function batf() {
+  local filename="$1"
+  if [[ ! -f "$filename" ]]; then
+    echo "Error: File '$filename' does not exist."
+    return 1
+  fi
+  local extension="${filename##*.}"
+  tail -f "$filename" | bat -l "$extension" --paging=never
+}
+
+if [[ -x `which bat` ]]; then
+  alias tailf="batf"
+fi

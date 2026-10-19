@@ -1,0 +1,44 @@
+# vim:ft=zsh:set ts=2 sw=2:
+
+# node / js / ts
+if [[ -x $(which nodenv) ]]; then
+  eval "$(nodenv init -)"
+fi
+
+# dev hook
+if [[ -x $(which dev) ]]; then
+  eval "$(dev _env)"
+  eval "$(dev _hook)"
+fi
+
+# python
+if [[ -x $(which pyenv) ]]; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+[[ -x $(which mise) ]] && eval "$(mise activate bash)"
+
+# go
+export PATH="$HOME/go/bin:$PATH"
+export GO111MODULE="on"
+
+# rustup shell setup
+# affix colons on either side of $PATH to simplify matching
+case ":${PATH}:" in
+  *:"$HOME/.cargo/bin":*)
+    ;;
+  *)
+    # Prepending path in case a system-installed rustc needs to be overridden
+    export PATH="$HOME/.cargo/bin:$PATH"
+    ;;
+esac
+
+# raspberry pi pico
+export PICO_SDK_PATH="$HOME/.local/share/pico-sdk"
+
+# android
+export JAVA_HOME="{{ settings["java-home"] }}"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools

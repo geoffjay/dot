@@ -1,0 +1,42 @@
+# vim:ft=zsh:set ts=2 sw=2:
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	export ZSH_PREFIX="/usr/share"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  if type brew &>/dev/null; then
+    export ZSH_PREFIX="$(brew --prefix)/share"
+  else
+    export ZSH_PREFIX="/usr/local/share"
+  fi
+fi
+
+zstyle ':completion:*' menu select
+
+# source plugins — prefer system share dirs, fall back to $HOME/.zsh clones
+if [[ -d "$ZSH_PREFIX" ]]; then
+  source $ZSH_PREFIX/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source $ZSH_PREFIX/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  fpath=($ZSH_PREFIX/zsh-completions $fpath)
+else
+  source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  fpath=($HOME/.zsh/zsh-completions/src $fpath)
+fi
+
+ZSH_PLUGINS="$HOME/.zsh/plugins"
+
+# source user-defined plugins
+if [ -d "$ZSH_PLUGINS" ]; then
+  for file in "$ZSH_PLUGINS"/*; do
+    [ -f $file ] && source $file
+  done
+fi
+
+unset ZSH_PLUGINS
+
+# add user-defined functions and completions to path
+[[ -d "$HOME/.zfunc" ]] && fpath=($HOME/.zfunc $fpath)
+[[ -d "$HOME/.zsh/completions" ]] && fpath=($HOME/.zsh/completions $fpath)
+
+autoload -Uz compinit
+compinit

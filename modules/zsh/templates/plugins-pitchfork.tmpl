@@ -1,0 +1,21 @@
+# vim:ft=zsh:set ts=2 sw=2:
+
+if (( ! $+commands[pitchfork] )); then
+  return
+fi
+
+command -v pitchfork >/dev/null 2>&1 && alias pf="pitchfork"
+
+# Load pitchfork hooks
+eval "$(pitchfork activate zsh)"
+
+# If the completion file doesn't exist yet, we need to autoload it and
+# bind it to `pitchfork`. Otherwise, compinit will have already done that.
+if [[ ! -f "$HOME/.zsh/completions/_pitchfork" ]]; then
+  typeset -g -A _comps
+  autoload -Uz _pitchfork
+  _comps[pitchfork]=_pitchfork
+fi
+
+# Generate and load pitchfork completion
+pitchfork completion zsh >| "$HOME/.zsh/completions/_pitchfork" &|
