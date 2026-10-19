@@ -49,7 +49,7 @@ commit_parsers = [
   { message = "^refactor", group = "Changed" },
   { message = "^docs", group = "Documentation" },
   { message = "^test", group = "Tests" },
-  { message = "^chore(\(release\))?: (release|bump version)", skip = true },
+  { message = "^chore(\\(release\\))?: (release|bump version)", skip = true },
   { message = "^chore", group = "Chore" },
   { message = ".*", group = "Other" },
 ]
