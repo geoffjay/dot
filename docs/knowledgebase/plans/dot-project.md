@@ -391,8 +391,10 @@ questions) and provisioning a real host.
 * **R1 — binary name `dot` collides with graphviz's `dot`** on PATH when
   graphviz is installed. Accepted (user's chosen name); document in
   README; `dot` commands are unambiguous when typed.
-* **R2 — AUR `dot-bin` may be taken.** Check availability before M6;
-  fallback `gdot-bin`.
+* **R2 — AUR `dot-bin` is taken** by an abandoned Dot Browser package
+  (last updated 2021, `provides=dot`). Resolved 2026-10-19: publishing as
+  **`gdot-bin`** (the planned fallback, confirmed free); the binary still
+  installs as `/usr/bin/dot` and `provides=(dot)`.
 * **R3 — token leak via propose** (cfg ships `.config/gh/hosts.yml`).
   Mitigated by the `sensitive` flag (hard exclusion) + key redaction in
   config blocks.
@@ -409,7 +411,9 @@ questions) and provisioning a real host.
 
 ## 14. Open questions to confirm before implementation
 
-1. AUR package name: is `dot-bin` free? (blocking only for M6, check early)
+1. ~~AUR package name: is `dot-bin` free?~~ No — taken by an abandoned
+   Dot Browser package (2021). Resolved: `gdot-bin` (see R2).
+
 2. Accept graphviz PATH collision (R1) or prefer an alias/wrapper?
 3. macOS state path confirmation: `~/.config/state/dot` as specced?
 4. Is the `~/.dotrc` legacy path needed, or is XDG-only acceptable?

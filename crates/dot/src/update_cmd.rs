@@ -3,7 +3,7 @@
 use anyhow::{bail, Context, Result};
 
 const REPO: &str = "geoffjay/dot";
-const AUR_PACKAGE: &str = "dot-bin";
+const AUR_PACKAGE: &str = "gdot-bin";
 
 #[derive(Debug, PartialEq)]
 enum Channel {

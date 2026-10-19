@@ -14,7 +14,7 @@
 #                   macOS).
 #
 # The rendered file is written to stdout so the caller decides where it lands
-# (i.e. the aur@aur.archlinux.org:dot-bin.git checkout). The checked-in
+# (i.e. the aur@aur.archlinux.org:gdot-bin.git checkout). The checked-in
 # template packaging/aur/PKGBUILD.tpl is never modified.
 #
 # The checksums file is the `sha256sum *.tar.gz` output produced by the
@@ -81,7 +81,7 @@ URL_LNX_X86="https://github.com/${REPO}/releases/download/v${VERSION}/dot-x86_64
 
 if [[ "$SRCINFO" -eq 1 ]]; then
     cat <<EOF
-pkgbase = dot-bin
+pkgbase = gdot-bin
 	pkgdesc = Modular, versioned dotfile manager
 	pkgver = ${VERSION}
 	pkgrel = 1
@@ -98,7 +98,7 @@ pkgbase = dot-bin
 	source_x86_64 = ${URL_LNX_X86}
 	sha256sums_x86_64 = ${SHA_LNX_X86}
 
-pkgname = dot-bin
+pkgname = gdot-bin
 EOF
     echo "Rendered .SRCINFO for v${VERSION}" >&2
 else

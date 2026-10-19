@@ -1,9 +1,9 @@
 # Maintainer: Geoff Johnson <geoff.jay@gmail.com>
-# PKGBUILD for dot-bin — binary package sourcing the release tarball from
+# PKGBUILD for gdot-bin — binary package sourcing the release tarball from
 # GitHub. Regenerated per release by scripts/gen-aur-pkgbuild.sh (URLs and
 # checksums are substituted verbatim; the checked-in template is never
 # modified by hand per-release).
-pkgname=dot-bin
+pkgname=gdot-bin
 pkgver=@@VERSION@@
 pkgrel=1
 pkgdesc="Modular, versioned dotfile manager"

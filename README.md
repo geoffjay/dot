@@ -26,7 +26,7 @@ brew install geoffjay/tap/dot
 **Arch Linux (AUR):**
 
 ```sh
-yay -S dot-bin
+yay -S gdot-bin
 ```
 
 **Prebuilt binaries:** download the tarball for your platform from the
