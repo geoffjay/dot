@@ -200,10 +200,14 @@ fn write_adopts_existing_file_with_backup() {
         .stdout(contains("adopted"))
         .stdout(contains("1 updated"));
 
-    // original preserved under backups/pre-write
-    let pre_write = home.path().join(".config/state/dot/backups/pre-write");
+    // original preserved under backups/pre-write (state dir is OS-specific:
+    // ~/.config/state/dot on macOS, ~/.local/state/dot on Linux)
+    let state_pre_write = dot_core::state::state_dir(home.path()).join("backups/pre-write");
     let mut found = false;
-    for entry in walkdir::WalkDir::new(&pre_write).into_iter().flatten() {
+    for entry in walkdir::WalkDir::new(&state_pre_write)
+        .into_iter()
+        .flatten()
+    {
         if entry.file_type().is_file()
             && fs::read_to_string(entry.path()).unwrap() == "precious original"
         {
