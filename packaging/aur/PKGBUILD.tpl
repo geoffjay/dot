@@ -1,4 +1,4 @@
-# Maintainer: Geoff Jukes <geoff@geoffjay.com>
+# Maintainer: Geoff Johnson <geoff.jay@gmail.com>
 # PKGBUILD for dot-bin — binary package sourcing the release tarball from
 # GitHub. Regenerated per release by scripts/gen-aur-pkgbuild.sh (URLs and
 # checksums are substituted verbatim; the checked-in template is never
